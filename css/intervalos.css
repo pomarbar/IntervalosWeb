@@ -1,0 +1,221 @@
+#panelSuperior {
+	position: absolute;
+	top: 0px;
+	left:2px;
+	width: 100%;
+	text-align: center;
+	font-family: futura, san-serif;
+}
+#panelIzquierdo {
+	position: fixed;
+	top: 60px;
+	left: 30px;
+	width: 370px;
+	height: 520px;
+	opacity: 0.8;
+}
+#discreto {
+	position: absolute;
+	top: 110px;
+	left: 5px;	
+	width: 145px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 16px;
+	opacity: 0.4;
+}
+#continuum {
+	position: absolute;
+	top: 110px;
+	left: 150px;	
+	width: 145px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 16px;
+	opacity: 0.4;
+}
+.categ {
+	position: absolute;
+	left: 50px;
+	width: 50px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 18px;
+	opacity: 0.4;
+}
+#justo {
+	top: 90px;	
+}
+#cons {
+	top:130px;
+}
+#dison {
+	top:170px;
+}
+
+.jus {
+	position: absolute;
+	top: 94px;
+	left: 105px;
+	width: 40px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 14px;
+	opacity: 0.4;
+}
+#cuartaj {
+	left: 150px;
+}
+#quintaj {
+	left: 195px;
+}
+#octava {
+	left: 240px;
+}
+
+.con {
+	position: absolute;
+	left: 105px;
+	top: 134px;
+	width: 40px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 14px;
+	opacity: 0.4;
+}
+#terzama {
+	left: 150px;
+}
+#sextame {
+	left: 195px;
+}
+#sextama {
+	left: 240px;
+}
+
+.dis {
+	position: absolute;	
+	top: 174px;
+	left: 105px;
+	width: 40px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 14px;
+	opacity: 0.4;
+}
+#segma {
+	left: 150px;
+}
+#trit {
+	
+	left: 195px;
+}
+#septme {
+	left: 240px;
+}
+#septma {
+	left: 285px;
+}
+
+#instrucciones {
+	position: relative;
+	top: 0px;
+	left: 40px;
+	width: 90%;
+	font-family: helvetica;
+	color: rgb(10,75,5);
+	font-size: 14px;
+}
+#text2 {
+	position: relative;
+	top: 350px;
+	left: 20px;
+	font-family: helvetica;
+	color: rgb(10,75,5);
+	font-size: 14px;
+	opacity: 0.0;
+}
+#textoI{
+	position: relative;
+	top: 18px;
+}
+#reloj {
+	position: fixed;
+	top: 559px;
+	left: 197px;
+	width: 200px;
+	text-align: center;
+}
+#panelDerecho {
+	position: absolute;
+	top: 275px;
+	left: 33px;
+	height: 120px;
+	width: 280px;
+	padding: 10px 10px 10px 10px;
+	opacity: 0.7;
+}
+#play {
+	position: absolute;
+	top: 50px;
+	left: 95px;
+	height: 38px;
+	width: 40px;
+	opacity: 0.0;
+}
+#stop {
+	position: absolute;
+	top: 50px;
+	left: 165px;
+	height: 38px;
+	width: 40px;
+	opacity: 0.0;
+}
+#repetir {
+	position: absolute;
+	top: 3px;
+	left: 225px;	
+	width: 70px;
+	text-align: center;
+	font-family: futura, san-serif;
+	font-size: 14px;
+	opacity: 0.0;
+}
+#entrar {
+	position: absolute;
+	left: 3px; 
+	top: 3px;
+	background-color: rgb(171,185,171);
+	color:rgb(2,18,5); 
+	font-size:14px;
+	font-family: futura, san-serif;
+	enable: false;
+}
+.titulo1 {
+	font-size: 24px;
+	color: green;
+	text-align: center; 
+}
+#checkmark{
+	position: absolute;
+	left: 270px; 
+	top: 215px;
+	width: 35px;
+	height: 35px;
+	opacity: 0.0;
+}
+#respuesta{
+	position: absolute;
+	left: 70px; 
+	top: 225px;
+	width: 200px;
+	height: 25px;
+	background-color: rgb(71,75,71); 
+	text-align: center; 
+	opacity: 0.7; 
+	color: rgb(234,247,233); 
+	font-family: futura;
+}
+#fondo {
+	opacity: 0.8;
+}

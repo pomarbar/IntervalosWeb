@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Intervalos</title>
+   <!-- <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/selector.js"></script>
+   <script type="text/javascript" src="js/intervalos.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/intervalos.css">
+    <!--<script type="text/javascript" src="js/jquery.js"></script>
+    <<script type="text/javascript" src="js/npm.js"></script>
+
+       <!--<script type="text/javascript" src="js/interv.js"></script>
+  Latest compiled and minified JavaScript -->
+</head>
+<body>
+	
+	<div>
+		<img id="fondo" src="grafs/w12.jpg">
+		<div id="panelSuperior" style="background-color:green; color:white; font-size:30px">Intervalos armónicos</div>
+		<div id="panelIzquierdo" class="container-fluid" style="background-color:rgb(230,252,230)">
+			
+			<div id="selector" style="background-color:green; font-family:futura; color:rgb(176,220,173); text-align:center; font-size:18px">Intervalos simples armónicos</div>
+			<p id="instrucciones"></p>
+			<p id="text2">J = Intervalos Justos<br>C = Intervalos Consonantes<br>D = Intervalos Disonantes</p>
+			<button class="categ" id="justo" type="button" >J</button>
+			<button class="categ" id="cons" type="button" >C</button>
+			<button class="categ" id="dison" type="button" >D</button>
+			<button class="jus" id="octava" type="button" >8</button>
+			<button class="dis" id="septma" type="button" >7M</button>
+			<button class="dis" id="septme" type="button" >7m</button>
+			<button class="con" id="sextama" type="button" >6M</button>
+			<button class="con" id="sextame" type="button" >6m</button>
+			<button class="jus" id="quintaj" type="button" >5</button>
+			<button class="dis" id="trit" type="button" >T</button>
+			<button class="jus" id="cuartaj" type="button" >4</button>
+			<button class="con" id="terzama" type="button" >3M</button>
+			<button class="con" id="terzame" type="button" >3m</button>
+			<button class="dis" id="segma" type="button" >2M</button>
+			<button class="dis" id="segme" type="button" >2m</button>
+			<button class="jus" id="uj" type="button" >U</button>
+
+			<div id="respuesta" type="text"></div>
+			<img id="checkmark" src="grafs/acierto.png">
+			<div id="panelDerecho" style="background-color:rgb(71,75,71); color:white; font-size:16px">
+				<p id="textoI" style="color:rgb(234,247,233); font-family:futura">No hay intervalos seleccionados. Por favor, antes de entrar seleccione los intervalos que desea trabajar.</p>
+				<img class="control" id="play" src="grafs/play.png">
+				<img class="control" id="stop" src="grafs/stop.png">
+				<button id="entrar" class="btn-class">ENTRAR</button>
+				<button class="control" id="repetir" type="button" >REPETIR</button>
+				<button class="modo" id="discreto" type="button" >Modo Discreto</button>
+				<button class="modo" id="continuum" type="button" >Modo Continuum</button>
+			</div>
+		</div>
+		
+	
+	<div id="reloj" style="background-color:green; color:white; font-size:16px"></div>
+	<audio id="fileInterv"></audio>
+	</div>
+	<script type="text/javascript">
+
+	</script>
+</body>
+</html>

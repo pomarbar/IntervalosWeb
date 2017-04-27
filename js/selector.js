@@ -63,6 +63,10 @@ function inicio(){
 				};
 			};
 		};
+		if (modo == "discreto" || modo == "continuum") {
+			$("#respuesta").text("Justo");
+			evaluar2();
+		};
 	});
 
 	// Selector de intervalo individual: Unisono = listaIntervUsuario[0].
@@ -317,6 +321,10 @@ function inicio(){
 					listaIntervUsuario[i] = 0;
 				};
 			};
+		};
+		if (modo == "discreto" || modo == "continuum") {
+			$("#respuesta").text("Consonante");
+			evaluar2();
 		};
 	});
 
@@ -575,6 +583,11 @@ function inicio(){
 					listaIntervUsuario[i] = 0;
 				};
 			};
+		};
+		if (modo == "discreto" || modo == "continuum") {
+			mostrarNombreIntervalo(0);
+			$("#respuesta").text("Disonante");
+			evaluar2();
 		};
 	});
 	
@@ -871,6 +884,8 @@ function inicio(){
 				$("#play").css("opacity", 0.4);
 				$("#stop").css("opacity", 0.4);
 				$("#repetir").css("opacity", 0.3);
+				$("#checkmark").css("opacity", 0.0);
+				$("#respuesta").text("");
 				discreclick = false;
 				conticlick = true;
 				modo = "discreto";
@@ -905,6 +920,8 @@ function inicio(){
 				$("#play").css("opacity", 0.4);
 				$("#stop").css("opacity", 0.4);
 				$("#repetir").css("opacity", 0.0);
+				$("#checkmark").css("opacity", 0.0);
+				$("#respuesta").text("");
 				conticlick = false;
 				discreclick = true;
 				modo = "continuum";
@@ -937,6 +954,7 @@ function inicio(){
 		if (modo == "discreto" || modo == "continuum") {
 			$("#play").css("opacity", 0.8);
 			$("#respuesta").text("¿Cuál intervalo sonó?");
+			$("#checkmark").css("opacity", 0.0);
 		};
 	});
 

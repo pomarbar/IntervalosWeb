@@ -12,6 +12,7 @@ var datosInterv = new Map();
 datosInterv.set("lista", -1);
 datosInterv.set("item", -1);
 datosInterv.set("nombre", "");
+datosInterv.set("nombre", "");
 
 // Función para controlar la entrada a la zona de trabajo.
 // Si no ha seleccionado intervalos, no le permite la entrada.
@@ -44,6 +45,8 @@ function salir(){
   		$("#play").css("opacity", 0.0);
 		$("#stop").css("opacity", 0.0);
 		$("#repetir").css("opacity", 0.0);
+		$("#checkmark").css("opacity", 0.0);
+		$("#respuesta").text("");
 	};
 }
 
@@ -168,6 +171,7 @@ function apagar(obj, num) {
 
 var listaArchivos = [["u1.mp3","u2.mp3","u3.mp3","u4.mp3","u5.mp3","u6.mp3","u7.mp3","u8.mp3","u9.mp3","u10.mp3","u11.mp3","u12.mp3","u13.mp3"],["4ju1.mp3","4ju2.mp3","4ju3.mp3","4ju4.mp3","4ju5.mp3","4ju6.mp3","4ju7.mp3","4ju8.mp3","4ju9.mp3","4ju10.mp3","4ju11.mp3","4ju12.mp3","4ju13.mp3"],["5ju1.mp3","5ju2.mp3","5ju3.mp3","5ju4.mp3","5ju5.mp3","5ju6.mp3","5ju7.mp3","5ju8.mp3","5ju9.mp3","5ju10.mp3","5ju11.mp3","5ju12.mp3","5ju13.mp3"],["8ju1.mp3","8ju2.mp3","8ju3.mp3","8ju4.mp3","8ju5.mp3","8ju6.mp3","8ju7.mp3","8ju8.mp3","8ju9.mp3","8ju10.mp3","8ju11.mp3","8ju12.mp3","8ju13.mp3"],["3me1.mp3","3me2.mp3","3me3.mp3","3me4.mp3","3me5.mp3","3me6.mp3","3me7.mp3","3me8.mp3","3me9.mp3","3me10.mp3","3me11.mp3","3me12.mp3","3me13.mp3"],["3ma1.mp3","3ma2.mp3","3ma3.mp3","3ma4.mp3","3ma5.mp3","3ma6.mp3","3ma7.mp3","3ma8.mp3","3ma9.mp3","3ma10.mp3","3ma11.mp3","3ma12.mp3","3ma13.mp3"],["6me1.mp3","6me2.mp3","6me3.mp3","6me4.mp3","6me5.mp3","6me6.mp3","6me7.mp3","6me8.mp3","6me9.mp3","6me10.mp3","6me11.mp3","6me12.mp3","6me13.mp3"],["6ma1.mp3","6ma2.mp3","6ma3.mp3","6ma4.mp3","6ma5.mp3","6ma6.mp3","6ma7.mp3","6ma8.mp3","6ma9.mp3","6ma10.mp3","6ma11.mp3","6ma12.mp3","6ma13.mp3"],["2me1.mp3","2me2.mp3","2me3.mp3","2me4.mp3","2me5.mp3","2me6.mp3","2me7.mp3","2me8.mp3","2me9.mp3","2me10.mp3","2me11.mp3","2me12.mp3","2me13.mp3"],["2ma1.mp3","2ma2.mp3","2ma3.mp3","2ma4.mp3","2ma5.mp3","2ma6.mp3","2ma7.mp3","2ma8.mp3","2ma9.mp3","2ma10.mp3","2ma11.mp3","2ma12.mp3","2ma13.mp3"],["trit1.mp3","trit2.mp3","trit3.mp3","trit4.mp3","trit5.mp3","trit6.mp3","trit7.mp3","trit8.mp3","trit9.mp3","trit10.mp3","trit11.mp3","trit12.mp3","trit13.mp3"],["7me1.mp3","7me2.mp3","7me3.mp3","7me4.mp3","7me5.mp3","7me6.mp3","7me7.mp3","7me8.mp3","7me9.mp3","7me10.mp3","7me11.mp3","7me12.mp3","7me13.mp3"],["7ma1.mp3","7ma2.mp3","7ma3.mp3","7ma4.mp3","7ma5.mp3","7ma6.mp3","7ma7.mp3","7ma8.mp3","7ma9.mp3","7ma10.mp3","7ma11.mp3","7ma12.mp3","7ma13.mp3"]];
 var nomIntervalos = ["Unísono","Cuarta","Quinta","Octava","Tercera menor","Tercera mayor","Sexta menor","Sexta mayor","Segunda menor","Segunda mayor","Tritono","Séptima menor","Séptima mayor"];
+var catInterv = ["Justo","Justo","Justo","Justo","Consonante","Consonante","Consonante","Consonante","Disonante","Disonante","Disonante","Disonante","Disonante"]; // categoría de cada intervalo
 var sizeIntervalos = [0,5,7,12,3,4,8,9,1,2,6,10,11]; //Tamaño en semitonos de cada intervalo, en el mismo orden de las listas anteriores.
 var intervaloSel = -1; //número del intervalo seleccionado, rango:0-12. corresponde con la variable NOMINTERVALOS.
 var matrizInterv = [];// para guardar temporalmente los índices de las listas de los intervalos seleccionados por el usuario. Sirve para seleccionar aleatoriamente intervalos y presentarlos auditivamente al usuario en forma de test.
@@ -255,6 +259,7 @@ function selectArchivo() {
 	datosInterv.set("item",num); // guarda número de item seleccionado
 	var n = refSublistas[sub]
 	datosInterv.set("nombre",nomIntervalos[n]); // guarda nombre del intervalo seleccionado
+	datosInterv.set("categoría",catInterv[n]); // guarda nombre de la categoría del intervalo seleccionado
 	console.log("Lista = " + n + "  Item = " + num + "  " + nomIntervalos[n]);
 }
 
@@ -285,6 +290,19 @@ function muestraReloj() {
 function evaluar() {
 	var x = $("#respuesta").text();
 	var y = datosInterv.get("nombre");
+
+	if (x == y) {
+		$('#checkmark').attr('src','grafs/acierto.png');
+		$('#checkmark').css('transform', 'scale(1.0)');
+	}else{
+		$('#checkmark').attr('src','grafs/error.png');
+		$('#checkmark').css('transform', 'scale(0.7)');
+	};
+	iluminar("#checkmark",0.0,0.05);
+}
+function evaluar2() {
+	var x = $("#respuesta").text();
+	var y = datosInterv.get("categoría");
 
 	if (x == y) {
 		$('#checkmark').attr('src','grafs/acierto.png');

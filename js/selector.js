@@ -6,10 +6,12 @@ var dgclick = 0;
 
 
 function inicio(){
+	$(".ent").text("");
 	var listaNombres = "Seleccione  los intervalos que desea trabajar, individualmente o por categorías,."
 	texto = listaNombres;
 	miDiv = "instrucciones";
 	animarTexto1();
+
 
 	// SELECTOR: eventos para recibir la selección de intervalos
 	// del usuario. Por grupos de intervalos e individualmente.
@@ -946,15 +948,14 @@ function inicio(){
 	$("#play").on("mousedown", "", function () {
 		if (modo == "discreto" || modo == "continuum") {
 			$("#play").css("opacity", 1.0);
+			$("#respuesta").text("¿Cuál intervalo sonó?");
+			$("#checkmark").css("opacity", 0.0);
 			jugar();
-
 		};
 	});
 	$("#play").on("mouseup", "", function () {
 		if (modo == "discreto" || modo == "continuum") {
 			$("#play").css("opacity", 0.8);
-			$("#respuesta").text("¿Cuál intervalo sonó?");
-			$("#checkmark").css("opacity", 0.0);
 		};
 	});
 

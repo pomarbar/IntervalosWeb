@@ -7,6 +7,13 @@ window.onload = function() {
   $("#continuum").css("opacity", 0.0);
   $(".ent").css("opacity", 0.0);
   porta();
+  // Botón (flecha) para salir de la portada y entrar al programa
+	$("#flecha").on( "mouseenter", function() {
+		$("#flecha").css("opacity", 1.0);
+	});
+	$("#flecha").on( "mouseleave", function() {
+		$("#flecha").css("opacity", 0.7);
+	});
 }
 // Carga la portada del programa
 function porta(){
@@ -14,12 +21,12 @@ function porta(){
 	iluminar("#panelSuperior",0.0,0.02);
 	iluminar("#panel2",0.0,0.02);
 	iluminar("#panel3",0.0,0.01);
+	$("#flecha").css("opacity", 0.7);
 }
 
 // Cierra la portada y da paso al programa
 function comenzar(){
-	apagar(".ent",1.0);
-	setInterval(achicarFondo(),1100);
+	achicarFondo();
 }
 function achicarFondo(){
 	var f = function() {
@@ -31,6 +38,9 @@ function achicarFondo(){
 	}
 	f();
 	$("#entrada").width(0);
+	$("#flecha").width(0);
+	$(".ent").css("opacity",0.0);
+	$(".ent").css("left",400);
 	inicio();
 }
 var modo = "";
@@ -95,6 +105,8 @@ var jugando = false;
 function jugarContinuum(){
 	var f = function() {
 		if (jugando) {
+			$("#respuesta").text("¿Cuál intervalo sonó?");
+			$("#checkmark").css("opacity", 0.0);
 			selectArchivo();
 			setTimeout(f,3200);
 		};

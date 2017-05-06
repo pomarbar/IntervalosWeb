@@ -1,11 +1,37 @@
 window.onload = function() {
-  setInterval(muestraReloj, 1000);
+  //setInterval(, 1000);
   //document.getElementById("entrar").style.display = 'block';
   $("#entrar").css("display", "none");
   $("#textoI").css("opacity", 0.0);
   $("#discreto").css("opacity", 0.0);
   $("#continuum").css("opacity", 0.0);
-  inicio();
+  $(".ent").css("opacity", 0.0);
+  porta();
+}
+// Carga la portada del programa
+function porta(){
+	iluminar("#panel4",0.0,0.1);
+	iluminar("#panelSuperior",0.0,0.02);
+	iluminar("#panel2",0.0,0.02);
+	iluminar("#panel3",0.0,0.01);
+}
+
+// Cierra la portada y da paso al programa
+function comenzar(){
+	apagar(".ent",1.0);
+	setInterval(achicarFondo(),1100);
+}
+function achicarFondo(){
+	var f = function() {
+		var ancho = parseInt($("#fe").css("width"));
+		if (ancho > 0) {
+			$("#fe").width(ancho - 3);
+			setTimeout(f,10);
+		};
+	}
+	f();
+	$("#entrada").width(0);
+	inicio();
 }
 var modo = "";
 var datosInterv = new Map();
@@ -254,6 +280,7 @@ function selectArchivo() {
 		li = di;
 	};
 	num = seleccionaItem(li); // Selecciona intervalo
+	$("#checkmark").css("opacity", 0.0);
 	tocaIntervalo(refSublistas[sub], num); // Toca intervalo
 	datosInterv.set("lista",refSublistas[sub]); // guarda numero de lista seleccionada
 	datosInterv.set("item",num); // guarda número de item seleccionado
@@ -317,3 +344,4 @@ function evaluar2() {
 if ($("#textoI").css("opacity") > 0) { // Si la intrucción está visible
 				apagar("#textoI",1.0);
 			};
+

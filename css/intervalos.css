@@ -1,18 +1,61 @@
-#panelSuperior {
-	position: absolute;
-	top: 0px;
-	left:2px;
-	width: 100%;
+.ent{
+	background-color:rgb(34,77,34); 
+	color:white; 
+	font-size:12px;
 	text-align: center;
 	font-family: futura, san-serif;
+}
+#panelSuperior {
+	position: absolute;
+	top: 130px;
+	left:80px;
+	height: 60px;
+	width: 55%;
+}#panel2 {
+	position: absolute;
+	top: 240px;
+	height: 75px;
+	width: 67%;
+	color: rgb(187,223,190);
+	background-color:transparent;
+	left: 60px;
+}
+#panel3 {
+	position: absolute;
+	top: 415px;
+	height: 55px;
+	width: 80%;
+	text-align: right;
+	background-color:transparent;
+	color: rgb(81,242,81);
+	left: 35px;
+	font-size:11px;
+}
+#panel4{
+	position: absolute;
+	top: 2px;
+	left:180px;
+	height: 60px;
+	width: 55%;
+	color: rgb(81,242,81);
+	font-family: futura, san-serif;
+	font-size: 8px;
+	background-color:transparent;
 }
 #panelIzquierdo {
 	position: fixed;
 	top: 60px;
 	left: 30px;
 	width: 370px;
-	height: 520px;
+	height: 500px;
 	opacity: 0.8;
+}
+#entrada{
+	position: absolute;
+	top: 29px;
+	left: 4px;
+	width: 370px;
+	height: 520px;
 }
 #discreto {
 	position: absolute;

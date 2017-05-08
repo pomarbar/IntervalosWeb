@@ -59,7 +59,7 @@ function entrar(){
 		discreclick = true;
 		conticlick = true;
 		estado = "tocar";
-		if ($("#textoI").css("opacity") > 0) {
+		if (parseInt($("#textoI").css("opacity")) > 0) {
 			apagar("#textoI",1.0);
 		};
 		$("#entrar").text("SELECCIONAR");
@@ -83,6 +83,11 @@ function salir(){
 		$("#repetir").css("opacity", 0.0);
 		$("#checkmark").css("opacity", 0.0);
 		$("#respuesta").text("");
+		var op = parseInt($("#nomTemp").css("opacity"));
+		if (op > 0) {
+			apagar("#nomTemp",1.0);
+			apagar(".temp",0.5);
+		};
 	};
 }
 
@@ -96,19 +101,23 @@ function jugar(){
 		selectArchivo();
 	} else if(modo == "continuum"){
 		jugando = true;
+		$("#play").css("width",0);
+		$("#play").css("height",0);
 		jugarContinuum();
+		iluminar("#nomTemp",0.0,0.1);
 	};
 }
 
 
 var jugando = false;
+var tempoInts = 3200;
 function jugarContinuum(){
 	var f = function() {
 		if (jugando) {
 			$("#respuesta").text("¿Cuál intervalo sonó?");
 			$("#checkmark").css("opacity", 0.0);
 			selectArchivo();
-			setTimeout(f,3200);
+			setTimeout(f,tempoInts);
 		};
 	}
 	f();
@@ -352,8 +361,3 @@ function evaluar2() {
 	};
 	iluminar("#checkmark",0.0,0.05);
 }
-
-if ($("#textoI").css("opacity") > 0) { // Si la intrucción está visible
-				apagar("#textoI",1.0);
-			};
-

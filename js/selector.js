@@ -888,10 +888,17 @@ function inicio(){
 				$("#repetir").css("opacity", 0.3);
 				$("#checkmark").css("opacity", 0.0);
 				$("#respuesta").text("");
+				$("#play").css("width",40);
+				$("#play").css("height",38);
 				discreclick = false;
 				conticlick = true;
 				modo = "discreto";
 				jugando = false;
+				var op = parseInt($("#nomTemp").css("opacity"));
+				if (op > 0) {
+					apagar("#nomTemp",1.0);
+					apagar(".temp",0.5);
+				};
 			};
 		};
 	});
@@ -924,10 +931,14 @@ function inicio(){
 				$("#repetir").css("opacity", 0.0);
 				$("#checkmark").css("opacity", 0.0);
 				$("#respuesta").text("");
+				iluminar("#nomTemp",0.0,0.1);
 				conticlick = false;
 				discreclick = true;
 				modo = "continuum";
 				jugando = true;
+				$(".temp").css("opacity",0.3);
+				$("#t3").css("opacity", 1.0);
+				tempoInts = 3000;
 			};
 		};
 	});
@@ -973,14 +984,23 @@ function inicio(){
 	});
 
 	$("#stop").on("mousedown", "", function () {
-		if (modo == "discreto" || modo == "continuum") {
+		if (modo == "discreto") {
 			$("#stop").css("opacity", 1.0);
 			detenerAudio();
+		};
+		if (modo == "continuum") {
+			$("#stop").css("opacity", 1.0);
+			detenerAudio();
+			$("#play").css("width",40);
+			$("#play").css("height",38);
 		};
 	});
 	$("#stop").on("mouseup", "", function () {
 		if (modo == "discreto" || modo == "continuum") {
 			$("#stop").css("opacity", 0.8); // Botones del grupo
+			/*if (parseInt($("#play").css("opacity")), == 0) {
+				$("#play").css("opacity", 0.7);
+			};*/
 		};
 	});	
 
@@ -1010,5 +1030,31 @@ function inicio(){
 			$("#repetir").css("opacity", 0.7);
 		};
 	});	
+
+// ==================== BOTÓNES TEMPO ========================
+	$(".temp").on("mousedown", "", function () {
+		$(".temp").css("opacity", 0.3);
+		if (modo == "continuum") {
+			$(this).css("opacity", 1.0);
+			var nomb = $(this).attr("id");
+			switch(nomb){
+				case "t0" : tempoInts = 800;
+					break;
+				case "t1" : tempoInts = 1500;
+					break;
+				case "t2" : tempoInts = 2200;
+					break;
+				case "t3" : tempoInts = 3000;
+					break;
+				case "t4" : tempoInts = 4000;
+					break;
+				case "t5" : tempoInts = 5300;
+					break;
+				case "t6" : tempoInts = 6600;
+					break;
+			}
+		};
+	});
+
 
 }

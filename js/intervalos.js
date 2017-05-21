@@ -65,6 +65,10 @@ function entrar(){
 		$("#entrar").text("SELECCIONAR");
 		$("#discreto").css("opacity", 0.3);
 		$("#continuum").css("opacity", 0.3);
+		pos = 0;
+		texto = "Para responder, haga click sobre el botón de la categoría o del intervalo directamente.";
+		miDiv = "instrucciones";
+		animarTexto1();
 		
 	} else{
 		iluminar("#textoI",0.0, 0.05);
@@ -73,7 +77,6 @@ function entrar(){
 function salir(){
 	if (estado == "tocar") {
 		detenerAudio();
-		estado = "selector";
 		modo = "";
 		$("#entrar").text("ENTRAR");
 		$("#discreto").css("opacity", 0.0);
@@ -88,6 +91,11 @@ function salir(){
 			apagar("#nomTemp",1.0);
 			apagar(".temp",0.5);
 		};
+		pos = 0;
+		texto = "Seleccione  los intervalos que desea trabajar, individualmente o por categoría (J,C ó D).";
+		miDiv = "instrucciones";
+		animarTexto1();
+		estado = "selector";
 	};
 }
 

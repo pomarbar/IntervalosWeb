@@ -7,7 +7,7 @@ var dgclick = 0;
 
 function inicio(){
 	$(".ent").text("");
-	var listaNombres = "Seleccione  los intervalos que desea trabajar, individualmente o por categorías,."
+	var listaNombres = "Seleccione  los intervalos que desea trabajar, individualmente o por categoría (J,C ó D).";
 	texto = listaNombres;
 	miDiv = "instrucciones";
 	animarTexto1();
